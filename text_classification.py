@@ -10,7 +10,6 @@ nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('wordnet')
 
-
 def removing_shortcuts(text):
     full_words = []
     shortcuts = {'u': 'you', 'y': 'why', 'r': 'are', 'doin': 'doing', 'hw': 'how', 'k': 'okay', 'm': 'am',
@@ -41,12 +40,10 @@ def removing_shortcuts(text):
     text = " ".join(full_words)
     return text
 
-
 def removing_stopwords(text):
     stop_words = set(stopwords.words('english'))
     stop = [x.lower() for x in stop_words]
     return [word for word in text if not word in stopwords.words()]
-
 
 def lemmatization(words_big):
     lemma = WordNetLemmatizer()
