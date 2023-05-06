@@ -1,10 +1,12 @@
 import nltk
+import pandas as pd
 from nltk.corpus import stopwords
 import re
 import emoji
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from matplotlib import pyplot as plt
+import gradio as gr
 
 nltk.download('stopwords')
 nltk.download('punkt')
@@ -679,12 +681,6 @@ def get_emotion(input):
     except:
         pass
 
-user_input = input("Enter Your input: ")
-data = get_emotion(user_input)
-print(data)
+iface = gr.Interface(fn=get_emotion, inputs="text", outputs="text", title="Emotion Classifier", description="Enter some text and get the predicted emotion label.", examples=[["I'm so happy to see you!"], ["I can't believe you did that!"], ["Wow, that's amazing!"], ["I feel really sad today."], ["I'm scared of spiders."]])
 
-fig = plt.figure(figsize=(10,7))
-labels = list(data.keys())
-values = list(data.values())
-plt.pie(values, labels=labels,normalize=False)
-plt.show()
+iface.launch()
