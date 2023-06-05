@@ -71,7 +71,4 @@ Follow the instructions below to install the necessary dependencies:
 Install Python 3.x from the official Python website: python.org.
 
 Install NLTK, Pandas, Matplotlib, and Gradio by running the following command:
-
-shell
-Copy code
 pip install nltk pandas matplotlib gradio
